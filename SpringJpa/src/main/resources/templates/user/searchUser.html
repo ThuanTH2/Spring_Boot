@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Search User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Person Table</h1>
+            <div>
+                <a th:href="@{/user/create}">Add new</a>
+            </div>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Adress</th>
+                    <th>Age</th>
+                    <th>Option</th>
+                </tr>
+                <tr th:each="user :${uList}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.homeadress}"></td>
+                    <td th:text="${user.age}"></td>
+
+                    <td>
+                        <a th:href="@{'/user/delete?id=' +${user.id} }">Delete</a>
+                        <a th:href="@{'/user/edit?id=' +${user.id} }">Edit</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
